@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function($class) {
-	$paths = ['controllers', 'models'];
+	$paths = ['core/controllers', 'core/models'];
 	foreach ($paths as $path) {
 		if (file_exists("{$path}/{$class}.php")) {
 			include("{$path}/{$class}.php");
