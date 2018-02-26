@@ -3,7 +3,7 @@
 class Album {
 	protected $id;
 	protected $name;
-	protected $releaseYear;
+	protected $releaseyear;
 	protected $artist_id;
 
 	function getId() {
@@ -15,7 +15,7 @@ class Album {
 	}
 
 	function getReleaseYear() {
-		return $this->releaseYear;
+		return $this->releaseyear;
 	}
 
 	function getArtistId() {

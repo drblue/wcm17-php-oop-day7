@@ -7,26 +7,20 @@ $artistController = new ArtistController($dbh);
 $artists = $artistController->getArtists();
 
 $albumController = new AlbumController($dbh);
-$albums = $albumController->getAlbums();
+// $albums = $albumController->getAlbums();
 
 ?>
 <h1>Artists</h1>
 
 <?php
 	foreach ($artists as $artist) {
-		echo "<li>{$artist->getName()} (ID: {$artist->getId()})</li>";
+		echo "<h2>{$artist->getName()}</h2>";
+		$albums = $albumController->getAlbumsForArtist($artist->getId());
+		foreach ($albums as $album) {
+			echo "<h3>{$album->getName()} ({$album->getReleaseYear()})</h3>";
+		}
 	}
 ?>
-
-<h1>Albums</h1>
-
-<ul>
-	<?php
-		foreach ($albums as $album) {
-			echo "<li>{$album->getName()} (ID: {$album->getId()})</li>";
-		}
-	?>
-</ul>
 
 <?php
 require("templates/footer.php");
